@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/coqueiro.ico" type="image/x-icon">
+    <title>Cálculo do IMC com funções</title>
+</head>
+<body>
+    <ul type="circle">
+        <li><a href="index.html" target="_self" rel="prev">Página inicial</a></li>
+        <li><a href="primeiros-exercicios.html" target="_self" rel="prev">Primeiros exercicios</a></li>
+        <li><a href="futebol.html" target="_self" rel="next">futebol</a></li>
+   </ul> 
+
+
+
+    <script>
+        function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+        function mostra (frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+        function calculaImc (peso, altura) {
+            var imc = peso/(altura**2);
+            return imc;
+        }
+
+        var nomeInformado = prompt("Qual o seu nome?")
+        var pesoInformado = prompt("Digite seu peso: ");
+        var alturaInformada = prompt("Digite sua altura: ");
+        var imcCalc = calculaImc(pesoInformado, alturaInformada);
+
+        mostra(nomeInformado + ", o seu IMC é de: " + Math.round(imcCalc));
+    </script>
+</body>
+</html>

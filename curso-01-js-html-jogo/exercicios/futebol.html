@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/coqueiro.ico" type="image/x-icon">
+    <title>Document</title>
+</head>
+<body>
+    <ul type="circle">
+        <li><a href="index.html" target="_self" rel="prev">Página inicial</a></li>
+        <li><a href="primeiros-exercicios.html" target="_self" rel="prev">Primeiros exercicios</a></li>
+        <li><a href="imc.html" target="_self" rel="prev">IMC</a></li>
+   </ul> 
+
+   <script>
+         function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+        function mostra (frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+        var numVit = Number(prompt("Digite o número de vitórias:"));
+        var numEmp = Number(prompt("Digite o número de empates:"));
+        var totPontos = numVit * 3 + numEmp
+        mostra("O número de pontos foi de: " + totPontos + "!");
+   </script>
+</body>
+</html>
