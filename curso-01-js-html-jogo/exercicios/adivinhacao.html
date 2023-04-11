@@ -32,12 +32,11 @@
         return Math.round(Math.random() * n);
     }
     function verifica() {
-        while(tentativas <= 3) {
-            var chute = document.querySelector("input");
+        while(tentativas <= 3) {  
             //var chute = Number(prompt("Chute um númer de 0 a 10:"));
                 if (chute.value == randomNum) {
                     //mostra("Você acertou! o número sorteado é: " + randomNum + "!");
-                    alert("Você acertou! o número sorteado é: " + randomNum + "!");
+                    alert("Você acertou! o número sorteado é: " + randomNum + "! recarregue a página!");
                     //tentativas = 3;
                     break;
                 } else if (chute.value > randomNum) {
@@ -52,15 +51,18 @@
                     tentativas++;
                     break;  
                 }     
-            tentativas++
+            tentativas++ 
         }
-        if(tentativas > 3) {
-            alert("O número correto era: " + randomNum);
-            alert("Você excedeu o número máximo de tentativas, recarregue a página!");
-        }
+    chute.value = "";
+    chute.focus()
+            if(tentativas > 3) {
+                alert("O número correto era: " + randomNum);
+                alert("Você excedeu o número máximo de tentativas, recarregue a página!");
+            }
     }
 
-   
+    var chute = document.querySelector("input");
+    chute.focus();
     var randomNum = sorteia(10);
     //var chute = document.querySelector("input");
     var tentativas = 1;
