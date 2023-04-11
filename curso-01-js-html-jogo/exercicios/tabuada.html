@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/coqueiro.ico" type="image/x-icon">
+    <title>Tabuada com for</title>
+</head>
+<body>
+    <ul type="circle">
+        <li><a href="index.html" target="_self" rel="prev">Página inicial</a></li>
+        <li><a href="primeiros-exercicios.html" target="_self" rel="prev">Primeiros exercicios</a></li>
+        <li><a href="imc.html" target="_self" rel="prev">IMC</a></li>
+        <li><a href="futebol.html" target="_self" rel="prev">Futebol</a></li>
+        <li><a href="adivinhacao.html" target="_self" rel="prev">Jogo da adivinhação</a></li>
+        <li><a href="anoCopa.html" target="_self" rel="prev">Ano da copa</a></li>
+   </ul>
+   
+   <script>
+    function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+    function mostra (frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+
+    var m = 1
+        for(var c = 6; m <= 10; m++) {
+            var tab = c * m;
+            mostra("6 x " + m + " = " + tab);
+        } 
+
+        /* var qtdFamiliares = Number(prompt("Quantos familiares moram com você?"));
+        var contador = 1;
+        var somaIdade = 0; // Eu preciso inicializar minha variável com um valor numérico
+        // para que não dê erro de NaN e preciso fazer isso fora do bloco While para que ele 
+        // não fique zerando minha var sempre que entrar no loop! 
+
+            while(contador <= qtdFamiliares) {
+                var idades = Number(prompt("Digite a idade do " + contador + "º familiar:" ));
+                somaIdade = somaIdade + idades;
+                contador++
+            }
+            
+         mostra("A média de idade dos seus familiares é de: " + somaIdade / qtdFamiliares); */
+
+
+   </script>
+</body>
+</html>

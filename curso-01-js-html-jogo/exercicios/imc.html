@@ -11,7 +11,10 @@
     <ul type="circle">
         <li><a href="index.html" target="_self" rel="prev">Página inicial</a></li>
         <li><a href="primeiros-exercicios.html" target="_self" rel="prev">Primeiros exercicios</a></li>
-        <li><a href="futebol.html" target="_self" rel="next">futebol</a></li>
+        <li><a href="futebol.html" target="_self" rel="next">Futebol</a></li>
+        <li><a href="adivinhacao.html" target="_self" rel="next">Jogo da adivinhação</a></li>
+        <li><a href="anoCopa.html" target="_self" rel="next"></a></li>
+        <li><a href="tabuada.html" target="_self" rel="next">Tabuada</a></li>
    </ul> 
 
 
@@ -34,8 +37,17 @@
         var pesoInformado = prompt("Digite seu peso: ");
         var alturaInformada = prompt("Digite sua altura: ");
         var imcCalc = calculaImc(pesoInformado, alturaInformada);
-
         mostra(nomeInformado + ", o seu IMC é de: " + Math.round(imcCalc));
+
+            if (imcCalc >= 18 && imcCalc <= 25) {
+                    mostra("Você está dentro do peso recomendado!")
+            } else if (imcCalc < 18) {
+                    mostra("Você está abaixo do peso recomendado!")
+            } else {
+                    mostra("Você está acima do peso recomendado!")
+                }
+
+          
     </script>
 </body>
 </html>
