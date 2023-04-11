@@ -17,6 +17,8 @@
         <li><a href="tabuada.html" target="_self" rel="next">Tabuada</a></li>
         <li><a href="tabuada.html" target="_self" rel="next">Tabuada</a></li>
    </ul>
+   <input type="text">
+   <button>Verifica</button>
 
    <script>
     function pulaLinha() {
@@ -29,31 +31,46 @@
     function sorteia (n) {
         return Math.round(Math.random() * n);
     }
-    
-    var ramdomNum = sorteia(10);
-    
-    var tentativas = 1;
-
-    //console.log(ramdomNum);
-
-    while(tentativas <= 3) {
-        var chute = Number(prompt("Chute um númer de 0 a 10:"));
-            if (chute == ramdomNum) {
-                mostra("Você acertou! o número sorteado é: " + ramdomNum + "!");
-                //tentativas = 3;
-                break;
-            } else if (chute > ramdomNum) {
-                mostra("Você errou, o número sorteado é menor!");
-                alert("Você errou, o número sorteado é menor!");
-                
-            } else if (chute < ramdomNum) {
-                mostra("Você errou, o número sorteado é maior!")
-                alert("Você errou, o número sorteado é maior!");  
-            }
-            
-        tentativas++
+    function verifica() {
+        while(tentativas <= 3) {
+            var chute = document.querySelector("input");
+            //var chute = Number(prompt("Chute um númer de 0 a 10:"));
+                if (chute.value == randomNum) {
+                    //mostra("Você acertou! o número sorteado é: " + randomNum + "!");
+                    alert("Você acertou! o número sorteado é: " + randomNum + "!");
+                    //tentativas = 3;
+                    break;
+                } else if (chute.value > randomNum) {
+                    //mostra("Você errou, o número sorteado é menor!");
+                    alert("Você errou, o número sorteado é menor!");
+                    tentativas++;
+                    break;
+                    
+                } else if (chute.value < randomNum) {
+                    //mostra("Você errou, o número sorteado é maior!")
+                    alert("Você errou, o número sorteado é maior!");
+                    tentativas++;
+                    break;  
+                }     
+            tentativas++
+        }
+        if(tentativas > 3) {
+            alert("O número correto era: " + randomNum);
+            alert("Você excedeu o número máximo de tentativas, recarregue a página!");
+        }
     }
-    mostra("O Número era: " + ramdomNum); 
+
+   
+    var randomNum = sorteia(10);
+    //var chute = document.querySelector("input");
+    var tentativas = 1;
+    var btn = document.querySelector("button");
+    btn.onclick = verifica;
+
+    console.log(randomNum);
+
+    
+   // mostra("O Número era: " + randomNum); 
 
     
     /*var linha;
