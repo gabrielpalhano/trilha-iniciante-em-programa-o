@@ -25,11 +25,37 @@
     var chute = document.querySelector("input");
     chute.focus();
     var btn = document.querySelector("button");
-    var segredos = [5, 6, 7, 1];
+    var segredos = sorteiaNums(4);
     var achou = false;
 
-        function sorteia (n) {
-            return Math.round(Math.random() * n);
+        function sorteia () {
+            return Math.round(Math.random() * 10);
+        }
+
+        function sorteiaNums (qtd) {
+            var segredos = [];
+            var contador = 1;
+
+            while (contador <= qtd) {
+
+                var numAle = sorteia();
+
+                if(numAle != 0) {
+                    var achou = false;
+
+                        for(i = 0; i < segredos.length; i++) {
+                            if (segredos[i] == numAle) {
+                                achou = true;
+                                break;
+                            }
+                        }
+                                if(achou == false) {
+                                    segredos.push(numAle);
+                                    contador++;
+                                }
+                }
+            }
+            return segredos;
         }
 
         function verifica() {
@@ -46,7 +72,8 @@
         chute.focus();
         chute.value = "";
         }
-        
+     
+    console.log(segredos);
     btn.onclick = verifica;
    </script>
 
