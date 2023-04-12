@@ -29,11 +29,16 @@
             pulaLinha();
         }
     function sorteia (n) {
-        return Math.round(Math.random() * n);
+        var nuMagico = Math.round(Math.random() * 10);
+            while(nuMagico == 0) {
+                nuMagico = Math.round(Math.random() * 10);
+            }
+        return nuMagico;
     }
     function verifica() {
+
         while(tentativas <= 3) {  
-            //var chute = Number(prompt("Chute um númer de 0 a 10:"));
+            //var chute = Number(prompt("Chute um númer de 1 a 10:"));
                 if (chute.value == randomNum) {
                     //mostra("Você acertou! o número sorteado é: " + randomNum + "!");
                     alert("Você acertou! o número sorteado é: " + randomNum + "! recarregue a página!");
