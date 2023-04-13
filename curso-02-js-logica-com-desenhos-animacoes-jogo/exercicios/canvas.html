@@ -11,6 +11,7 @@
 
     <ul>
         <li><a href="index.html" target="_self" rel="prev">Página inicial</a></li>
+        <li><a href="creeper.html" target="_self" rel="next">Minecraft Creeper com canvas</a></li>
     </ul>
 
     <canvas width="600" height="400"></canvas>
@@ -20,8 +21,25 @@
             var tela = document.querySelector("canvas");
             var pincel = tela.getContext("2d");
 
-            pincel.fillStyle = "purple";
+            pincel.fillStyle = "lightgray";
             pincel.fillRect(0, 0, 600, 400);
+
+            pincel.fillStyle = "red";
+            pincel.fillRect(0, 0, 200, 400);
+
+            pincel.fillStyle = "green";
+            pincel.fillRect(400, 0, 200, 400);
+
+            pincel.fillStyle = "yellow";
+            pincel.moveTo(300, 200);
+            pincel.lineTo(200, 400);
+            pincel.lineTo(400, 400);
+            pincel.fill();
+
+            pincel.fillStyle = "purple"
+            pincel.beginPath();
+            pincel.arc(300, 200, 50, 0, 2 * 3.14);
+            pincel.fill();
 
         </script>
     
