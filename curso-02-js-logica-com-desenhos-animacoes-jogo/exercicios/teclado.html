@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/coqueiro.ico" type="image/x-icon">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><a href="index.html" target="_self" rel="prev">Página inicial</a></li>
+        <li><a href="canvas.html" target="_self" rel="prev">Aprendendo sobre o Canvas!</a></li>
+        <li><a href="creeper.html" target="_self" rel="prev">Minecraft Creeper com canvas</a></li>
+        <li><a href="quadrados.html" target="_self" rel="prev">Desenhando quadrados com canvas e funções!</a></li>
+        <li><a href="coordenadas.html" target="_self" rel="prev">Passando coordenadas</a></li>
+        <li><a href="pincelando.html" target="_self" rel="prev">Pintando com o mouse!</a></li>
+        <li><a href="dardos.html" target="_self" rel="prev">Acertando o alvo!</a></li>
+        <li><a href="animacao.html" target="_self" rel="prev">Animação</a></li>
+        <li><a href="TiroAoAlvo.html" target="_self" rel="next">Joguinho: Tiro ao alvo!</a></li>
+    </ul>
+
+    <canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var x = 20;
+    var y = 20;
+
+    // códigos do teclado
+
+    var esquerda = 37
+    var cima = 38
+    var direita = 39
+    var baixo = 40
+
+    var taxa = 10;
+
+    function desenhaCirculo(x, y, raio) {
+
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function limpaTela() {
+
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+
+    function atualizaTela() {
+
+        limpaTela();
+        desenhaCirculo(x, y, 10);
+    }
+
+    setInterval(atualizaTela, 20);
+
+    function leDoTeclado(evento) {
+
+        if(evento.keyCode == cima) {
+
+            y = y - taxa;
+
+        } else if (evento.keyCode == baixo) {
+
+            y = y + taxa;
+
+        } else if (evento.keyCode == esquerda) {
+
+            x = x - taxa;
+
+        } else if (evento.keyCode == direita) {
+
+            x = x + taxa;
+        }
+    }
+
+   document.onkeydown = leDoTeclado;
+
+</script>
+
+</body>
+</html>

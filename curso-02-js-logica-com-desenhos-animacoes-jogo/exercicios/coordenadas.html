@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/coqueiro.ico" type="image/x-icon">
+    <title>Passando coordenadas</title>
+</head>
+<body>
+    <ul>
+        <li><a href="index.html" target="_self" rel="prev">Página inicial</a></li>
+        <li><a href="canvas.html" target="_self" rel="prev">Aprendendo sobre o Canvas!</a></li>
+        <li><a href="creeper.html" target="_self" rel="prev">Minecraft Creeper com canvas</a></li>
+        <li><a href="quadrados.html" target="_self" rel="prev">Desenhando quadrados com canvas e funções!</a></li>
+        <li><a href="pincelando.html" target="_self" rel="next">Pintando com o mouse!</a></li>
+        <li><a href="dardos.html" target="_self" rel="next">Acertando o alvo!</a></li>
+        <li><a href="animacao.html" target="_self" rel="next">Animação</a></li>
+        <li><a href="teclado.html" target="_self" rel="next">Movendo a bolinha pelo teclado.</a></li>
+        <li><a href="TiroAoAlvo.html" target="_self" rel="next">Joguinho: Tiro ao alvo!</a></li>
+    </ul>
+
+    <canvas width="600" height="400">
+
+    </canvas>
+
+    <script>
+        var tela = document.querySelector("canvas");
+        var pincel = tela.getContext("2d");
+
+        pincel.fillStyle = "grey";
+        pincel.fillRect(0, 0, 600, 400);
+        var cores = ["blue", "red", "green"];
+        var indiceCorAtual = 0; // Começa com a cor azul (blue).
+        var raio = 10; //Com a var raio fora do escopo da função, ela passa a acumular valor, ficando cada vez maior.
+
+            function desenhaCirculo(evento) {
+                var x = evento.pageX - tela.offsetLeft;
+                var y = evento.pageY - tela.offsetTop;
+                //var raio = 10; // Com o raio declarado dentro da função, ele sempre retorna para o valor inicial de 10.
+
+                console.log("posição do clique : " + x + ", " + y);
+
+
+                if (evento.shiftKey && evento.altKey) {
+                        alert("Aperte apenas uma tecla por vez!")
+                    } else if (evento.shiftKey && raio + 10 <= 40) {
+                        raio += 10;
+                    } else if (evento.altKey && raio - 5 >= 10) {
+                        raio -= 5;
+                    }
+
+                pincel.fillStyle = cores[indiceCorAtual];
+                pincel.beginPath();
+                pincel.arc(x, y, raio, 0, 2 * 3.14);
+                pincel.fill();
+
+                
+            }
+            
+            tela.onclick = desenhaCirculo;
+
+            function mudaCor() {
+                indiceCorAtual++;
+                    if(indiceCorAtual > cores.length) {
+                        indiceCorAtual = 0; //Para voltar para a cor inicial que é blue no índice 0.
+                    }
+                return false //Para não exibir o menu padrão do canvas ao usuário!
+            }
+
+            tela.oncontextmenu = mudaCor;
+    </script>
+</body>
+</html>
